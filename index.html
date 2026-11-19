@@ -148,6 +148,12 @@
   .day-switch .section-head { margin-bottom: .75rem; }
   .day { margin-top: 2.25rem; }
   .stay-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ticket-grid { margin-bottom: .85rem; }
+  .rail-ticket { border-top: 4px solid var(--green); }
+  .rail-ticket .status { color: var(--rust); font-size: .82rem; font-weight: 750; }
+  .rail-ticket .trip-time { font-size: 1.4rem; font-weight: 750; }
+  .rail-ticket .trip-time span { font-size: .78rem; color: var(--muted); font-weight: 400; }
+  .rail-ticket:target { outline: 2px solid #b45539; outline-offset: -2px; }
   .nav .text-size { margin-left: auto; }
   .checklist { margin: 0; padding: 0; list-style: none; }
   .checklist li + li { margin-top: .6rem; }
@@ -182,15 +188,15 @@
 </header>
 <nav aria-label="攻略目录" class="nav">
 <ul class="wrap">
-<li><a href="#itinerary">行程</a></li><li><a href="#food">吃饭</a></li><li><a href="#lodging">住宿</a></li><li><a href="#route-map">地图</a></li><li><a href="#prep">准备</a></li>
+<li><a href="#itinerary">行程</a></li><li><a href="#food">吃饭</a></li><li><a href="#lodging">车票住宿</a></li><li><a href="#route-map">地图</a></li><li><a href="#prep">准备</a></li>
 <li class="text-size"><button aria-pressed="false" hidden="" id="size" type="button">放大文字</button></li>
 </ul>
 </nav>
 <main class="wrap">
 <div aria-label="已确认的交通与住宿" class="quick wrap-state">
-<a href="#friday"><small>11.20 周五 · 已出票</small><strong>22:29 广州南 → 23:16 福田</strong><span>G6263 · 汉庭竹子林两间大床房</span></a>
+<a href="#ticket-out"><small>11.20 周五 · 已出票</small><strong>22:29 广州南 → 23:16 福田</strong><span>G6263 · 汉庭竹子林两间大床房</span></a>
 <a href="#stay"><small>11.21 周六 · 已确认</small><strong>𢑥舍-太子</strong><span>双床与大床各一间 · 两间独卫</span></a>
-<a href="#sunday"><small>11.22 周日 · 已出票</small><strong>20:57 西九龙 → 22:03 广州南</strong><span>G6532 · 19:50 前到西九龙站 B1</span></a>
+<a href="#ticket-back"><small>11.22 周日 · 已出票</small><strong>20:57 西九龙 → 22:03 广州南</strong><span>G6532 · 19:50 前到西九龙站 B1</span></a>
 </div>
 
 <section aria-labelledby="route-title" id="route-map">
@@ -392,13 +398,18 @@
 </div>
 </section>
 <section aria-labelledby="lodging-title" id="lodging">
-<div class="section-head"><h2 id="lodging-title">两晚住哪里</h2></div>
-<div class="stay-grid">
-<div class="stay"><p class="status">周五 · 两间已订</p><h3>汉庭深圳竹子林地铁站酒店</h3>
-<p>深圳市福田区竹子林五路竹林花园 2 号楼。两间大床房 A，晚到直接入住。</p>
-<p>11 月 20 日 14:00 起入住，11 月 21 日 14:00 前离店。按行程 08:15 出发。</p>
-<div class="links"><a href="https://m.huazhu.com/Hotel/Detail/5180401">华住酒店资料</a><a href="https://uri.amap.com/search?keyword=%E6%B1%89%E5%BA%AD%E6%B7%B1%E5%9C%B3%E7%AB%B9%E5%AD%90%E6%9E%97%E5%9C%B0%E9%93%81%E7%AB%99%E9%85%92%E5%BA%97+%E7%AB%B9%E5%AD%90%E6%9E%97%E4%BA%94%E8%B7%AF%E7%AB%B9%E6%9E%97%E8%8A%B1%E5%9B%AD2%E5%8F%B7%E6%A5%BC&amp;city=%E6%B7%B1%E5%9C%B3&amp;callnative=1">汉庭导航</a></div>
-</div>
+<div class="section-head"><h2 id="lodging-title">已订车票与住宿</h2></div>
+<div aria-label="两程已订高铁" class="stay-grid ticket-grid">
+<article class="note rail-ticket" id="ticket-out">
+<p class="status">11.20 周五 · 已出票</p><h3>G6263 · 广州南 → 深圳福田</h3>
+<p class="trip-time">22:29 → 23:16 <span>47 分钟</span></p>
+<p>一等座 3 张 · 检票口 14 或 A14</p><p>建议 21:45 前到广州南。检票口以现场为准。</p>
+</article>
+<article class="note rail-ticket" id="ticket-back">
+<p class="status">11.22 周日 · 已出票</p><h3>G6532 · 香港西九龙 → 广州南</h3>
+<p class="trip-time">20:57 → 22:03 <span>66 分钟</span></p>
+<p>二等座 3 张 · 检票口 4A</p><p>19:50 前到 B1，20:27 停止实名验证及检票。检票口以现场为准。</p>
+</article>
 <div class="stay" id="stay">
 <p class="status">周六住宿 · 两间已确认</p>
 <h3>𢑥舍-太子</h3>
@@ -407,6 +418,13 @@
 <p>周五打 <a href="tel:+85269512305">+852 6951 2305</a> 联系住宿。入住指南会在入住前发送，出发前保存入口说明和两房门码。</p>
 <div class="links"><a aria-label="导航至 Dream Living Prince Edward Golden Wheel Plaza 739 Nathan Road Hong Kong" href="https://www.google.com/maps/search/?api=1&amp;query=Dream+Living+Prince+Edward+Golden+Wheel+Plaza+739+Nathan+Road+Hong+Kong">住宿导航</a><a href="https://hk.trip.com/hotels/hong-kong-hotel-detail-135797119/dream-living-prince-edward/">Trip.com 入住政策</a></div>
 </div></div>
+<div class="stay-grid">
+<div class="stay"><p class="status">周五 · 两间已订</p><h3>汉庭深圳竹子林地铁站酒店</h3>
+<p>深圳市福田区竹子林五路竹林花园 2 号楼。两间大床房 A，晚到直接入住。</p>
+<p>11 月 20 日 14:00 起入住，11 月 21 日 14:00 前离店。按行程 08:15 出发。</p>
+<div class="links"><a href="https://m.huazhu.com/Hotel/Detail/5180401">华住酒店资料</a><a href="https://uri.amap.com/search?keyword=%E6%B1%89%E5%BA%AD%E6%B7%B1%E5%9C%B3%E7%AB%B9%E5%AD%90%E6%9E%97%E5%9C%B0%E9%93%81%E7%AB%99%E9%85%92%E5%BA%97+%E7%AB%B9%E5%AD%90%E6%9E%97%E4%BA%94%E8%B7%AF%E7%AB%B9%E6%9E%97%E8%8A%B1%E5%9B%AD2%E5%8F%B7%E6%A5%BC&amp;city=%E6%B7%B1%E5%9C%B3&amp;callnative=1">汉庭导航</a></div>
+</div>
+</div>
 </section>
 
 
